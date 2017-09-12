@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01-HeapStack", "01-HeapStack\01-HeapStack.vcxproj", "{409F746D-265F-4BB6-AC0F-7AE2D3A57DB3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02-PointerArithmetic", "02-PointerArithmetic\02-PointerArithmetic.vcxproj", "{B1BAC547-0757-4E84-81CC-89D04224BCDC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{409F746D-265F-4BB6-AC0F-7AE2D3A57DB3}.Release|x64.Build.0 = Release|x64
 		{409F746D-265F-4BB6-AC0F-7AE2D3A57DB3}.Release|x86.ActiveCfg = Release|Win32
 		{409F746D-265F-4BB6-AC0F-7AE2D3A57DB3}.Release|x86.Build.0 = Release|Win32
+		{B1BAC547-0757-4E84-81CC-89D04224BCDC}.Debug|x64.ActiveCfg = Debug|x64
+		{B1BAC547-0757-4E84-81CC-89D04224BCDC}.Debug|x64.Build.0 = Debug|x64
+		{B1BAC547-0757-4E84-81CC-89D04224BCDC}.Debug|x86.ActiveCfg = Debug|Win32
+		{B1BAC547-0757-4E84-81CC-89D04224BCDC}.Debug|x86.Build.0 = Debug|Win32
+		{B1BAC547-0757-4E84-81CC-89D04224BCDC}.Release|x64.ActiveCfg = Release|x64
+		{B1BAC547-0757-4E84-81CC-89D04224BCDC}.Release|x64.Build.0 = Release|x64
+		{B1BAC547-0757-4E84-81CC-89D04224BCDC}.Release|x86.ActiveCfg = Release|Win32
+		{B1BAC547-0757-4E84-81CC-89D04224BCDC}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

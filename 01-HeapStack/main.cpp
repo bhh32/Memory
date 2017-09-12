@@ -1,10 +1,8 @@
 #include <iostream>
-#include <string>
-#include <string.h>
+#include <stdio.h>
 
 using std::cout;
 using std::cin;
-using std::getline;
 using std::endl;
 
 // Walkthrough
@@ -115,14 +113,13 @@ void GameNamesArray()
 	cout << "How many game names would you like to provide: ";
 	cin >> capacity;
 
-	char** arr;
-
+	char arr[][80] = { 0 };
 	for (int i = 0; i < capacity; i++)
 	{
 		for (int j = 0; j < capacity; j++)
 		{
 			cout << "Okay, what's name " << i + 1 << "?\n";
-			cin.get(arr[i][j]);
+			//cin.gets(arr[i][j], 80);
 		}
 	}
 
