@@ -69,6 +69,17 @@ void PrintArray(int* arr, int size)
 	}
 }
 
+void PrintArray(char* arr, int size)
+{
+	for (int i = 0; i < size; ++i)
+	{
+		if (i != size - 1)
+			cout << *(arr + i);
+		else
+			cout << *(arr + i) << endl;
+	}
+}
+
 void ArrCopy(int* srcArr, int srcSize, int* dstArr, int dstSize)
 {
 	if (srcSize <= dstSize)
@@ -98,6 +109,29 @@ void ArrCopy(int* srcArr, int srcSize, int* dstArr, int dstSize)
 		cout << "Error: You can't copy a larger array to a smaller array. Check your parameters!\n";
 }
 
+void ArrCopy(char* srcArr, int srcSize, char* dstArr, int dstSize)
+{
+	if (srcSize <= dstSize)
+	{
+		for (int i = 0; i < dstSize; ++i)
+		{
+			if (i <= srcSize)
+			{
+				for (int j = 0; j < srcSize; ++j)
+				{
+					if (i == j)
+						*(dstArr + j) = *(srcArr + i);
+				}
+			}
+			else
+				*(dstArr + i) = 0;
+
+		}
+	}
+	else
+		cout << "Error: You can't copy a larger array to a smaller array. Check your parameters!\n";
+}
+
 //3.) Array Reversal
 void ArrReversal(int* arr, int size)
 {
@@ -110,11 +144,14 @@ void ArrReversal(int* arr, int size)
 		// record front value
 		temp[i] = *(arr + i);
 
+		// Work from the outside to the middle replacing values
 		*(arr + i) = *(arr + (size - 1 - i));
 		*(arr + (size - 1 - i)) = temp[i];
 	}
 
 	PrintArray(arr, size);
+
+	delete[] temp;
 }
 
 //4.) String Reversal
@@ -122,13 +159,21 @@ void StringReversal(char* arr, int size)
 {
 	char* temp = new char[size];
 
+	PrintArray(arr, size);
+
 	for (int i = 0; i < size / 2; ++i)
 	{
+		// record front value
 		temp[i] = *(arr + i);
 
+		// Work from the outside to the middle replacing values
 		*(arr + i) = *(arr + (size - 1 - i));
 		*(arr + (size - 1 - i)) = temp[i];
 	}
+
+	PrintArray(arr, size);
+
+	delete[] temp;
 }
 
 int main()
@@ -187,6 +232,8 @@ int main()
 
 	PrintFloats(floatArr, floatArrSize);
 
+	delete floatArr;
+
 	cout << "\n";
 
 
@@ -201,6 +248,8 @@ int main()
 
 	cout << "The array sum is: " << ArraySum(sumArray, sumArraySize) << endl;
 
+	delete[] sumArray;
+
 	cout << endl;
 
 	//3.) Average of Integer Array
@@ -214,6 +263,8 @@ int main()
 	intAvg[4] = 2;
 
 	cout << "intAvg: " << ArrayAvg(intAvg, intAvgSize) << endl;
+
+	delete[] intAvg;
 
 	cout << endl;
 
@@ -259,6 +310,10 @@ int main()
 	cout << "Target 1 shows up: " << FindCount(target1, countArray1, arrSizes) << " times!" << endl;
 	cout << "Target 2 shows up: " << FindCount(target2, countArray2, arrSizes) << " times!" << endl;
 	cout << "Target 3 shows up: " << FindCount(target3, countArray3, arrSizes) << " times!" << endl;
+
+	delete[] countArray1;
+	delete[] countArray2;
+	delete[] countArray3;
 
 	cout << endl;
 
@@ -312,6 +367,16 @@ int main()
 	cout << endl;
 	cout << endl;
 
+	delete[] sourceArr1;
+	delete[] sourceArr2;
+	delete[] sourceArr3;
+	delete[] errorSourceArr;
+
+	delete[] dstArr1;
+	delete[] dstArr2;
+	delete[] dstArr3;
+	delete[] errorDstArr;
+
 	//3.) Array Reversal
 	int reverseArraySizes = 8;
 
@@ -344,10 +409,20 @@ int main()
 	cout << endl;
 	cout << endl;
 
-	// String Reversal
-	char* string = { "Bryan" };
+	delete[] reverseArray1;
+	delete[] reverseArray2;
+	delete[] reverseArray3;
 
-	StringReversal(string, sizeof(string));
+	// String Reversal
+	char* string = new char[6];
+	string[0] = 'B';
+	string[1] = 'r';
+	string[2] = 'y';
+	string[3] = 'a';
+	string[4] = 'n';
+	string[5] = '\0';
+	
+	StringReversal(string, strlen(string));
 
 	system("pause");
 
